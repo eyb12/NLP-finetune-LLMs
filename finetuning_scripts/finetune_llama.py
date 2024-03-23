@@ -16,7 +16,7 @@ model, tokenizer = FastLanguageModel.from_pretrained(
     max_seq_length = max_seq_length,
     dtype = None,
     load_in_4bit = True,
-    token = "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"
+    token = "HF_TOKEN HERE"
 )
 
 EOS_TOKEN = tokenizer.eos_token
