@@ -11,7 +11,7 @@ dataset = load_from_disk('./alpaca_data')
 # Access the train and test splits
 train_set = dataset['train']
 
-max_seq_length = 2048
+max_seq_length = 256
 
 model, tokenizer = FastLanguageModel.from_pretrained(
     model_name = "unsloth/mistral-7b-bnb-4bit",
@@ -20,6 +20,7 @@ model, tokenizer = FastLanguageModel.from_pretrained(
     load_in_4bit = True
 )
 
+EOS_TOKEN = tokenizer.eos_token
 def formatting_prompts_func(examples):
     output_text = []
     for i in range(len(examples["instruction"])):
@@ -48,6 +49,8 @@ def formatting_prompts_func(examples):
             ### Response:
             {response}
             '''
+        
+        text = text + EOS_TOKEN
         output_text.append(text)
 
     return output_text

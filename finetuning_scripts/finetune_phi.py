@@ -20,7 +20,7 @@ base_model = "microsoft/phi-2"
 dataset = load_from_disk('./alpaca_data')
 dataset = dataset['train']
 
-max_seq_length = 2048
+max_seq_length = 256
 
 def formatting_prompts_func(examples):
     output_text = []
@@ -88,12 +88,28 @@ model = prepare_model_for_kbit_training(model, use_gradient_checkpointing=True)
 #     task_type="CAUSAL_LM",
 #     target_modules= ["Wqkv", "out_proj"] #["Wqkv", "fc1", "fc2" ] # ["Wqkv", "out_proj", "fc1", "fc2" ]
 # )
+# peft_config = LoraConfig(
+#     r=32, 
+#     lora_alpha=32, 
+#     target_modules = [ "q_proj", "k_proj", "v_proj", "dense" ],
+#     lora_dropout=0.1,
+#     bias="none",
+#     task_type="CAUSAL_LM",
+# )
+
 peft_config = LoraConfig(
-    r=32, 
-    lora_alpha=32, 
-    target_modules = [ "q_proj", "k_proj", "v_proj", "dense" ],
-    lora_dropout=0.1,
+    r=16,
+    lora_alpha=32,
+    target_modules=[
+    'q_proj',
+    'k_proj',
+    'v_proj',
+    'dense',
+    'fc1',
+    'fc2',
+    ], #print(model) will show the modules to use
     bias="none",
+    lora_dropout=0.05,
     task_type="CAUSAL_LM",
 )
 
