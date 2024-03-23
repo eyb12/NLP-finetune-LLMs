@@ -37,10 +37,17 @@ Run `sh hyperparameter_experiments.sh`
 
 This shell script will use 4 different hyperparameter configurations for model generation for each of `top_k`, `num_beams`, and `temperature` (for a total of 12 configurations). Then each configuration will be applied to each of the 3 LLMs: Llama2-7B, Mistral-7B, and Phi-2-2.7B.
 
+Hyperparameter changes used were: 
+- `[10, 25, 40, 75]` for `top_k`
+- `[2, 3, 5, 10]` for `num_beams`
+- `[0.0, 0.25, 0.5, 1.0]` for `temperature`
+
+For each configuration only one of the above is changed and the others are set to default values of `top_k=50`, `num_beams=1`, `temperature=0.8`. Note that `num_beams=1` essentially means no beam search, since beam search and random sampling are not compatible.
+
 This shell script will run all the experiments in a pipeline: Setting the generation hyperparameters, collecting LLM generations and saving them to `./llm_responses`, cleaning output, and finally computing the evaluation metrics which are saved to `./eval_results`.
 
 ## Results
-Config describes the generation hyperparameters. (CodeBLEU eval metrics ignored as i)
+Config describes the generation hyperparameters. (CodeBLEU eval metrics ignored as it is not relevant for the text dataset/task)
 
 ### Llama2-Alpaca
 | Config | BLEU | ROUGE-L | BERTScore | Human  |
