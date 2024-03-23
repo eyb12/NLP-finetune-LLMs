@@ -10,6 +10,8 @@ pip install vllm==0.2.7
 pip install sacrebleu rogue_score bert_score
 ```
 
+Alternatively, install using `conda env create -f environment.yaml`
+
 ## Some notes
  - The unsloth library is used for finetuning llama and mistral. It uses QLoRA (Quantized Low Rank Adaptation) behind the scenes and significantly reducing training time and VRAM usage.
  - PEFT was used to finetune Phi-2, this method also uses LoRA
@@ -17,13 +19,13 @@ pip install sacrebleu rogue_score bert_score
 Using these methods do have the potential to reduce performance in the final model, but typically this reduction is negligible or in some cases using these methods actually improve performance.
 
 ## Dataset Preprocessing
-Create train/test set from Alpaca data:
+Create train/test set from Alpaca data (as it does not originally have a test split, which we need for evaluations):
 
 `python split_dataset.py`
 
 This will create a folder `./alpaca_data` which stores the train and test split that is created.
 
-## 3. Fine-Tuning Pre-trained LLMs
+## Fine-Tuning Pre-trained LLMs
 
 Run `python finetuning_scripts/finetune_<MODEL-NAME>.py` to perform finetuning of the LLMs. 
 
