@@ -15,8 +15,9 @@ Alternatively, install using `conda env create -f environment.yaml`
 ## Some notes
  - The unsloth library is used for finetuning llama and mistral. It uses QLoRA (Quantized Low Rank Adaptation) behind the scenes and significantly reducing training time and VRAM usage.
  - PEFT was used to finetune Phi-2, this method also uses LoRA
+ - These PEFT methods only train a much smaller set of parameters to reduce VRAM footprint and speed up training time
 
-Using these methods do have the potential to reduce performance in the final model, but typically this reduction is negligible or in some cases using these methods actually improve performance.
+Using these methods do have the potential to reduce performance in the final model (compared to full finetuning), but typically this reduction is negligible or in some cases using these methods actually improve performance.
 
 ## Dataset Preprocessing
 Create train/test set from Alpaca data (as it does not originally have a test split, which we need for evaluations):
