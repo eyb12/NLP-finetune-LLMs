@@ -1,0 +1,3 @@
+BLEU score: 0.087344
+Average ROUGE-L score: 0.212703
+BERTScore - F1: 0.846659

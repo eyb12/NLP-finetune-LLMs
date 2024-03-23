@@ -81,6 +81,15 @@ with open(args.output_file, 'w') as outfile:
                 num_beams=args.num_beams,
                 early_stopping=True
         )
+        elif(args.temperature == 0.0):
+            output = model.generate(
+                input_ids,
+                max_length=256,
+                num_return_sequences=1,
+                top_k=args.top_k,
+                do_sample=False,
+                temperature=args.temperature
+        )
         else:
             output = model.generate(
                 input_ids,
@@ -89,7 +98,8 @@ with open(args.output_file, 'w') as outfile:
                 top_k=args.top_k,
                 do_sample=True,
                 temperature=args.temperature
-        )
+        )    
+
         generated_text = tokenizer.decode(output[0], skip_special_tokens=True)
         
         # Construct the record to be saved

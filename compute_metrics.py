@@ -30,11 +30,11 @@ def compute_metrics(prediction_file, output_file):
     _, _, f1 = score(generated_texts, expected_outputs, lang='en', verbose=True)
     avg_f1 = f1.mean().item()
 
-    # Save results to a text file
+    # Save results to a text file with increased precision
     with open(output_file, 'w') as file:
-        file.write(f"BLEU score: {bleu_score_normalized:.2f}\n")
-        file.write(f"Average ROUGE-L score: {avg_rouge_l:.2f}\n")
-        file.write(f"BERTScore - F1: {avg_f1:.2f}\n")
+        file.write(f"BLEU score: {bleu_score_normalized:.6f}\n")
+        file.write(f"Average ROUGE-L score: {avg_rouge_l:.6f}\n")
+        file.write(f"BERTScore - F1: {avg_f1:.6f}\n")
 
     print(f"Metrics saved to {output_file}")
 

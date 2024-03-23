@@ -27,7 +27,8 @@ default_temperature=0.8
 # Set the hyperparameter values to test
 top_k_values=(10 25 40 75)
 num_beams_values=(2 3 5 10)
-temperature_values=(0.0 0.25 0.5 1.0)
+temperature_values=(0 0.25 0.5 1.0)
+
 
 # Run experiments for different top_k values
 for top_k in "${top_k_values[@]}"
