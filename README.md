@@ -109,13 +109,13 @@ Mistral-Alpaca generally outperforms both Llama2-Alpaca and Phi2-Alpaca across a
 
 **Write another discussion explaining the how the hyperparameters effect on the different metrics of LLaMA, Mistral, Phi-2.**
 
- - For Llama2-Alpaca, increasing the number of beams (num_beams) tends to improve the BLEU and ROUGE-L scores, with the highest scores achieved when num_beams is set to 5 or 10. However, the BERTScore slightly decreases with higher num_beams values. Varying the temperature (temp) or the top_k value does not show a consistent trend in the metrics.
+ - For Llama2-Alpaca, increasing the number of beams (num_beams) tends to improve the BLEU and ROUGE-L scores, with the highest scores achieved when num_beams is set to 5 or 10. However, the BERTScore slightly decreases with higher num_beams values. Varying the temperature or the top_k value does not show a consistent trend in the metrics.
 
  - In the case of Mistral-Alpaca, higher num_beams values (3, 5, and 10) result in significant improvements across all three metrics compared to the default setting (num_beams=1). Increasing the temperature leads to lower BLEU and ROUGE-L scores, while the BERTScore remains relatively stable. The top_k value does not have a notable impact on the metrics.
 
  - For Phi2-Alpaca, increasing the num_beams value generally improves the BLEU and ROUGE-L scores, with the highest scores obtained when num_beams is set to 10. However, the BERTScore does not show a clear trend with varying num_beams. Changing the temperature or the top_k value does not result in significant differences in the metrics.
 
- Overall, the effect of hyperparameters on the metrics varies across the three models. Mistral-Alpaca seems to benefit the most from increasing the num_beams value, while Llama2-Alpaca and Phi2-Alpaca show some improvements but to a lesser extent. The impact of temperature and top_k is less pronounced and inconsistent across the models
+ Overall, the effect of hyperparameters on the metrics varies across the three models. Mistral-Alpaca seems to benefit the most from increasing the num_beams value, while Llama2-Alpaca and Phi2-Alpaca show some improvements but to a lesser extent. The impact of temperature and top_k is less pronounced and inconsistent across the models.
 
 
 ## References and Useful Resources Used
