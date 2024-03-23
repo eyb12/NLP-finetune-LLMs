@@ -40,7 +40,7 @@ This shell script will use 4 different hyperparameter configurations for model g
 This shell script will run all the experiments in a pipeline: Setting the generation hyperparameters, collecting LLM generations and saving them to `./llm_responses`, cleaning output, and finally computing the evaluation metrics which are saved to `./eval_results`.
 
 ## Results
-Config describes the generation hyperparameters.
+Config describes the generation hyperparameters. (CodeBLEU eval metrics ignored as i)
 
 ### Llama2-Alpaca
 | Config | BLEU | ROUGE-L | BERTScore | Human  |
@@ -109,3 +109,11 @@ Mistral-Alpaca generally outperforms both Llama2-Alpaca and Phi2-Alpaca across a
  - For Phi2-Alpaca, increasing the num_beams value generally improves the BLEU and ROUGE-L scores, with the highest scores obtained when num_beams is set to 10. However, the BERTScore does not show a clear trend with varying num_beams. Changing the temperature or the top_k value does not result in significant differences in the metrics.
 
  Overall, the effect of hyperparameters on the metrics varies across the three models. Mistral-Alpaca seems to benefit the most from increasing the num_beams value, while Llama2-Alpaca and Phi2-Alpaca show some improvements but to a lesser extent. The impact of temperature and top_k is less pronounced and inconsistent across the models
+
+
+## References and Useful Resources Used
+1. [unsloth](https://github.com/unslothai/unsloth) library for faster finetuning with less VRAM footprint (via QLoRA)
+
+2. Supervised fine-tuning trainer to streamline finetuning process, [SFTTrainer](https://huggingface.co/docs/trl/en/sft_trainer)
+
+3. [vLLM](https://github.com/vllm-project/vllm) for fast and memory-efficient inferencing
