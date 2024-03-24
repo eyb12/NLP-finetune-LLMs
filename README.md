@@ -10,8 +10,6 @@ pip install vllm==0.2.7
 pip install sacrebleu rogue_score bert_score
 ```
 
-Alternatively, install using `conda env create -f environment.yaml`
-
 ## Some notes
  - The unsloth library is used for finetuning llama and mistral. It uses QLoRA (Quantized Low Rank Adaptation) behind the scenes and significantly reducing training time and VRAM usage.
  - PEFT was used to finetune Phi-2, this method also uses LoRA
