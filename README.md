@@ -7,7 +7,7 @@ pip install "unsloth[colab-new] @ git+https://github.com/unslothai/unsloth.git"
 pip install --no-deps trl peft accelerate bitsandbytes
 pip install einops
 pip install vllm==0.2.7
-pip install sacrebleu rogue_score bert_score
+pip install sacrebleu rouge_score bert_score
 ```
 
 ## Some notes
